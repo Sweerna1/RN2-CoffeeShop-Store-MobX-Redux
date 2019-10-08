@@ -13,6 +13,10 @@ import CoffeeCart from "../CoffeeCart";
 import CoffeeDetail from "../CoffeeDetail";
 import Login from "../Login";
 
+import { connect } from "react-redux";
+
+import { getCoffeeShops } from "../../store/actions";
+
 class HomePage extends Component {
   render() {
     return (
@@ -25,4 +29,11 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+const mapDispatchToProps = dispatch => ({
+  getCoffeeShops: () => dispatch(getCoffeeShops())
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(HomePage);
